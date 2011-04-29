@@ -4,6 +4,7 @@ class LineItemsController < ApplicationController
   def index
     @line_items = LineItem.all
 
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @line_items }
@@ -42,12 +43,12 @@ class LineItemsController < ApplicationController
   def create
     @cart = current_cart
     product = Product.find(params[:product_id])
-    @line_item = @cart.line_items.build(:product => product)
+    @line_item = @cart.add_product(product.id)
+    reset_session_index_count
 
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to(@line_item.cart, 
-                                  :notice => 'Line item was successfully created.') }
+        format.html { redirect_to(@line_item.cart) }
         format.xml  { render :xml => @line_item, :status => :created, :location => @line_item }
       else
         format.html { render :action => "new" }
@@ -83,4 +84,11 @@ class LineItemsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  private
+
+    # reset when adding an item to the cart
+    def reset_session_index_count
+      session[:store_index_count] = 0    
+    end
 end

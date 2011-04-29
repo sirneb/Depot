@@ -6,7 +6,8 @@
 
 <% @products.each do |product| %>
   <div class="entry">
-    <%= image_tag(product.image_url) %>
+    <%= link_to(image_tag(product.image_url, {:border => '0', :title => "Add to Cart"}), 
+                line_items_path(:product_id => product), :method => 'post') %>
     <h3><%= product.title %></h3>
     <%= sanitize(product.description) %>
     <div class="price_line">
@@ -14,4 +15,8 @@
       <%= button_to 'Add to Cart', line_items_path(:product_id => product) %>
     </div>
   </div>
+  
 <% end %>
+<% if @count >= 5 %>
+  <p>You have visited the store <%= pluralize(@count, "time") %> now.</p>
+<% end  %>
