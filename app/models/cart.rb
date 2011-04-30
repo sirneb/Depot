@@ -22,4 +22,8 @@ class Cart < ActiveRecord::Base
     end
     return sum
   end
+
+  def total_items
+    line_items.sum(:quantity)
+  end
 end

@@ -1,6 +1,7 @@
 class StoreController < ApplicationController
   def index
     @products = Product.all
+    @cart = current_cart
     index_count_inc       # session store index page count
     @count = session[:store_index_count] 
   end
