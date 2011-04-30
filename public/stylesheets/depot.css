@@ -191,3 +191,12 @@
   margin-bottom: 10px;
 }
 /* END:cartside */
+
+/* added for playtime exercises */
+#store .product_image {
+  width: 80px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  float: left;
+  text-decoration: none;
+}
