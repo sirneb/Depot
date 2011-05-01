@@ -1,3 +1,4 @@
+<% line_item.destroy if line_item.quantity == 0 %>
 <% if line_item == @current_item  %>
 <tr id="current_item">
 <% else  %>
