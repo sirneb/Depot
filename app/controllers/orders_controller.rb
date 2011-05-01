@@ -25,6 +25,7 @@ class OrdersController < ApplicationController
   # GET /orders/new.xml
   def new
     @cart  = current_cart
+    @checking_out = true
     if @cart.line_items.empty?
       redirect_to store_url, :notice => "Your cart is empty."
       return
@@ -48,7 +49,7 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(params[:order])
     @order.add_line_items_from_cart(current_cart)
-
+    
     respond_to do |format|
       if @order.save
         Cart.destroy(session[:cart_id])
@@ -56,7 +57,12 @@ class OrdersController < ApplicationController
         format.html { redirect_to(store_url, :notice => 'Thank you for your order.') }
         format.xml  { render :xml => @order, :status => :created, :location => @order }
       else
-        format.html { render :action => "new" }
+        format.html do
+          @cart = current_cart  # set these because action only renders the page
+          @checking_out = true  # without the controller method
+          render :action => 'new' 
+        end
+          # redirect_to(new_order_path, :method => :get) }
         format.xml  { render :xml => @order.errors, :status => :unprocessable_entity }
       end
     end
