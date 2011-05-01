@@ -1,3 +1,6 @@
+  # this takes care of notices that sticks around with the ajax updates
+page.select("#notice").each { page[:notice].hide }
+
 page.replace_html('cart', render(@cart))
 
 page[:cart].visual_effect :blind_down if @cart.total_items == 1
