@@ -1,0 +1,17 @@
+page.replace_html('cart', render(@cart)) 
+ 
+
+if @line_item.quantity > 0
+  page[:current_item].visual_effect :highlight,
+                                  :startcolor => "#88ff88",
+                                  :endcolor => "#114411"
+else
+  
+  @line_item.destroy 
+
+  if @cart.line_items.count == 0
+    page[:cart].visual_effect :blind_up
+  else
+    page[:current_item].visual_effect :fade
+  end
+end

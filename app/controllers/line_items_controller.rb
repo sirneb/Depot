@@ -76,16 +76,27 @@ class LineItemsController < ApplicationController
 
   # DELETE /line_items/1
   # DELETE /line_items/1.xml
-  def destroy
-    @line_item = LineItem.find(params[:id])
-    @line_item.destroy
 
+  def destroy
+    @cart = current_cart
+    @line_item = LineItem.find(params[:id])
+    if @line_item.quantity > 0
+      @line_item.quantity -= 1
+      @line_item.price -= @line_item.product.price
+      @line_item.save
+    else
+      # @line_item.destroy
+      @line_item.destroy 
+
+    end
+
+    
     respond_to do |format|
-      format.html { redirect_to(line_items_url) }
+      format.html { redirect_to(store_url) }
+      format.js { @current_item = @line_item }
       format.xml  { head :ok }
     end
   end
-
   private
 
     # reset when adding an item to the cart
