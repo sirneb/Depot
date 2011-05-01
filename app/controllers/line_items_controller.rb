@@ -80,19 +80,24 @@ class LineItemsController < ApplicationController
   def destroy
     @cart = current_cart
     @line_item = LineItem.find(params[:id])
-    if @line_item.quantity > 0
+    # if @line_item.quantity > 0
       @line_item.quantity -= 1
       @line_item.price -= @line_item.product.price
       @line_item.save
-    else
+    # else
       # @line_item.destroy
-      @line_item.destroy 
-
-    end
+    # end
 
     
     respond_to do |format|
-      format.html { redirect_to(store_url) }
+      format.html do
+        if @line_item.quantity == 0
+          @line_item.destroy
+          redirect_to(store_url)
+        else
+          redirect_to(store_url)  
+        end
+      end
       format.js { @current_item = @line_item }
       format.xml  { head :ok }
     end

@@ -7,7 +7,7 @@ if @line_item.quantity > 0
                                   :endcolor => "#114411"
 else
   
-  # @line_item.destroy 
+  @line_item.destroy
 
   if @cart.line_items.count == 0
     page[:cart].visual_effect :blind_up
