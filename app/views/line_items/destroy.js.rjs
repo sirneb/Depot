@@ -3,7 +3,7 @@ page.replace_html('cart', render(@cart))
 
 if @line_item.quantity > 0
   page[:current_item].visual_effect :highlight,
-                                  :startcolor => "#88ff88",
+                                  :startcolor => "#ff0000",
                                   :endcolor => "#114411"
 else
   

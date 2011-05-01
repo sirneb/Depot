@@ -86,24 +86,40 @@
 }
 
 #main {
-  margin-left: 17em;
+  margin-left: 22em;
   padding-top: 4ex;
-  padding-left: 2em;
+  padding-left: 4em;
   background: white;
 }
 
 #side {
   float: left;
   padding-top: 1em;
-  padding-left: 1em;
+  padding-left: 0.5em;
   padding-bottom: 1em;
-  width: 16em;
+  width: 20em;
   background: #141;
+}
+
+#side td {
+  padding: 0em;
+  margin: 0em;
+  border: 0em;
 }
 
 #side a {
   color: #bfb;
   font-size: small;
+}
+
+#side #plus {
+  font-size: 9px;
+  padding-top: 6px;
+  padding-bottom: 1px;
+  padding-left: 5px;
+  padding-right: 6px;
+  line-height: 20px;
+  
 }
 /* END:mainlayout */
 
@@ -200,3 +216,5 @@
   float: left;
   text-decoration: none;
 }
+
+
