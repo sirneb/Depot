@@ -1,10 +1,16 @@
 class StoreController < ApplicationController
+  skip_before_filter :authorize
+
   def index
-    @products = Product.all
-    @cart = current_cart
-    @checking_out = false
-    index_count_inc       # session store index page count
-    @count = session[:store_index_count] 
+    if params[:set_locale]
+      redirect_to store_path(:locale => params[:set_locale])
+    else 
+      @products = Product.all
+      @cart = current_cart
+      @checking_out = false
+      index_count_inc       # session store index page count
+      @count = session[:store_index_count] 
+    end
   end
 
   private

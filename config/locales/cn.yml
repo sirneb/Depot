@@ -1,0 +1,21 @@
+cn:
+
+  layouts:
+    application:
+      title:          "忙碌的名公布"
+      home:           "家"
+      questions:      "问题"
+      news:           "新闻"
+      contact:        "通讯"
+
+  store:
+    index:
+      title_html:     "你的忙碌名目录"
+      add_html:       "加入手推车"
+
+  carts:
+      cart:
+        title:        "你的手推车"
+        checkout:     "校验"
+        empty:        "空手推车"
+        confirm:      "你是不是?"
