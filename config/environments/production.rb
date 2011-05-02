@@ -37,6 +37,10 @@ Depot::Application.configure do
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
 
+
+  # Using a test mailing method
+  config.action_mailer.delivery_method = :test
+
   # Enable threaded mode
   # config.threadsafe!
 
