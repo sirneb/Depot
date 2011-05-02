@@ -62,4 +62,7 @@ es:
 
   thanks:                 "Gracias por su pedido"
 
-
+  order:
+    check:                "Cheque"
+    cc:                   "Credito Cardo"
+    purchase_order:       "Purchase Ordero"

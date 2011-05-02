@@ -5,7 +5,7 @@ class StoreController < ApplicationController
     if params[:set_locale]
       redirect_to store_path(:locale => params[:set_locale])
     else 
-      @products = Product.all
+      @products = Product.find_all_by_locale
       @cart = current_cart
       @checking_out = false
       index_count_inc       # session store index page count

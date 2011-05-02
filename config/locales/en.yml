@@ -43,3 +43,8 @@ en:
       submit:             "Place Order"
 
   thanks:                 "Thank you for your order."
+
+  order:
+    check:                "Check"
+    cc:                   "Credit Card"
+    purchase_order:       "Purchase Order"
