@@ -83,7 +83,6 @@
 
 #columns {
   background: #141;
-
 }
 
 #main {
@@ -98,7 +97,7 @@
   padding-top: 1em;
   padding-left: 0.5em;
   padding-bottom: 1em;
-  /* width: 22em; */
+  width: 20em;
   background: #141;
 }
 
