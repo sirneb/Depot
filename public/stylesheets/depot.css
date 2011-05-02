@@ -83,6 +83,7 @@
 
 #columns {
   background: #141;
+
 }
 
 #main {
@@ -97,7 +98,7 @@
   padding-top: 1em;
   padding-left: 0.5em;
   padding-bottom: 1em;
-  width: 20em;
+  /* width: 22em; */
   background: #141;
 }
 
@@ -237,6 +238,18 @@
   padding-top: 0.2em;
   margin-right: 0.1em;
   display: block;
+}
+
+.depot_form select, .depot_form textarea, .depot_form input {
+  margin-left: 0.5em;
+}
+
+.depot_form .submit {
+  margin-left: 4em;
+}
+
+.depot_form div {
+  margin: 0.5em 0;
 }
 
 
