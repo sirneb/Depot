@@ -7,6 +7,8 @@ gem 'rails', '3.0.5'
 
 gem 'sqlite3'
 
+# Order.create(:name => "Customer #{i}", :address => "#{i} Main Street",
+# :email => "customer-#{i}@example.com", :pay_type => "Check")
 # Use unicorn as the web server
 # gem 'unicorn'
 
@@ -24,6 +26,7 @@ gem 'sqlite3'
 # gem 'aws-s3', :require => 'aws/s3'
 
 gem 'will_paginate', '>= 3.0.pre'
+gem 'RedCloth'
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
